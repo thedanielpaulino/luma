@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost'; 
 $db = 'luma';
-$user = 'seu_usuario'; 
-$pass = 'sua_senha'; 
+$user = 'root'; 
+$pass = 'root'; 
 
 
 $conn = new mysqli($host, $user, $pass, $db);
