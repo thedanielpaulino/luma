@@ -78,4 +78,19 @@
     text-align: center;
     margin-top: 10px;
   }
+  .register-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #8EACCD; /* Azul médio */
+  }
+  
+  .register-link a {
+    color: #8EACCD;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
   
