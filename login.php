@@ -1,32 +1,36 @@
 <?php
-include 'db.php';
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+// Verifica se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
 
-    // Preparar e vincular
-    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($hashed_password);
-        $stmt->fetch();
-
-        // Verificar a senha
-        if (password_verify($password, $hashed_password)) {
-            echo "Login bem-sucedido!";
-        } else {
-            echo "Senha incorreta!";
-        }
+    // Credenciais fixas
+    if ($user === "Luma" && $pass === "1234") {
+        $_SESSION["loggedin"] = true;
+        header("Location: dashboard.php"); // Redireciona para a página protegida
+        exit;
     } else {
-        echo "Usuário não encontrado!";
+        $erro = "Usuário ou senha incorretos!";
     }
-
-    $stmt->close();
 }
-
-$conn->close();
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Luma</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <?php if (isset($erro)) echo "<p style='color:red;'>$erro</p>"; ?>
+    <form method="post">
+        <label>Usuário:</label>
+        <input type="text" name="username" required><br><br>
+        <label>Senha:</label>
+        <input type="password" name="password" required><br><br>
+        <input type="submit" value="Entrar">
+    </form>
+</body>
+</html>
