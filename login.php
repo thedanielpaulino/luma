@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Credenciais fixas
     if ($user === "Luma" && $pass === "1234") {
         $_SESSION["loggedin"] = true;
-        header("Location: dashboard.php"); // Redireciona para a página protegida
+        header("Location: pagina.html"); // Redireciona para a página protegida
         exit;
     } else {
         $erro = "Usuário ou senha incorretos!";
