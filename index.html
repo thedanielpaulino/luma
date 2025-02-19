@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="csspart.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Luma</title>
+    <script>
+        function verificarLogin(event) {
+            event.preventDefault(); // Impede o recarregamento da página
+
+            // Obtém os valores digitados
+            var usuario = document.getElementById("username").value;
+            var senha = document.getElementById("password").value;
+
+            // Verifica as credenciais
+            if (usuario === "Luma" && senha === "1234") {
+                window.location.href = "pagina.html"; // Redireciona para a página de destino
+            } else {
+                document.getElementById("erro").innerText = "Usuário ou senha incorretos!";
+            }
+        }
+    </script>
 </head>
 <body>
-  <div class="login-container" >
-    <div class="centerpage">
-      <h1>Bem-Vindo ao Luma!</h1>
-      <h3>Para começarmos bem, faça seu login</h3>
-      <form id="loginForm" action="login.php" method="post">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required aria-label="Preencha com o nome de Usuário!">
+    <h2>Login</h2>
+    
+    <p id="erro" style="color: red;"></p>
 
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required arialabel="Cuidado com a sua Senha!">
-
-        <button type="submit">Entrar</button>
-        <p id="errorMessage"></p>
-      </form>
-    </div>
-  </div>
+    <form onsubmit="verificarLogin(event)">
+        <label>Usuário:</label>
+        <input type="text" id="username" required><br><br>
+        <label>Senha:</label>
+        <input type="password" id="password" required><br><br>
+        <input type="submit" value="Entrar">
+    </form>
 </body>
 </html>
