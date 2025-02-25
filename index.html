@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="csspart.css">
 </head>
 <body>
-    <h2>Login</h2>
-    
-    <p id="erro" style="color: red;"></p>
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <p id="erro" style="color: red;"></p>
 
-    <form onsubmit="verificarLogin(event)">
-        <label>Usuário:</label>
-        <input type="text" id="username" required><br><br>
-        <label>Senha:</label>
-        <input type="password" id="password" required><br><br>
-        <input type="submit" value="Entrar">
-    </form>
+        <form onsubmit="verificarLogin(event)">
+            <label>Usuário:</label>
+            <input type="text" id="username" required><br><br>
+            <label>Senha:</label>
+            <input type="password" id="password" required><br><br>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
     <script>
         function verificarLogin(event) {
             event.preventDefault(); // Impede o recarregamento da página
