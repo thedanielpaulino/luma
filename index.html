@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Luma</title>
+    <link rel="stylesheet" href="csspart.css">
+</head>
+<body>
+    <h2>Login</h2>
+    
+    <p id="erro" style="color: red;"></p>
+
+    <form onsubmit="verificarLogin(event)">
+        <label>Usuário:</label>
+        <input type="text" id="username" required><br><br>
+        <label>Senha:</label>
+        <input type="password" id="password" required><br><br>
+        <input type="submit" value="Entrar">
+    </form>
     <script>
         function verificarLogin(event) {
             event.preventDefault(); // Impede o recarregamento da página
@@ -20,19 +34,5 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="csspart.css">
-</head>
-<body>
-    <h2>Login</h2>
-    
-    <p id="erro" style="color: red;"></p>
-
-    <form onsubmit="verificarLogin(event)">
-        <label>Usuário:</label>
-        <input type="text" id="username" required><br><br>
-        <label>Senha:</label>
-        <input type="password" id="password" required><br><br>
-        <input type="submit" value="Entrar">
-    </form>
 </body>
 </html>
